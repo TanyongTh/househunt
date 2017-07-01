@@ -1,0 +1,13 @@
+*.pyc
+*~
+db.sqlite3
+.idea
+.vscode
+!/static
+.DS_Storepy
+static_cdn
+
+# Elastic Beanstalk Files
+.elasticbeanstalk/*
+!.elasticbeanstalk/*.cfg.yml
+!.elasticbeanstalk/*.global.yml

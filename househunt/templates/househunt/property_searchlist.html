@@ -1,0 +1,56 @@
+{% extends 'househunt/property_search.html' %}
+
+{% block result %}
+<div class="row">
+    <div class="col-md-12">
+        <p>Search results: <b>{{ result }}</b> properties</p>
+    </div>
+</div>
+
+<!--debug message-->
+<!--<p>debug: <b>{{ property }}</b></p>-->
+
+<div class="panel panel-default">
+    <div class="table-responsive">
+        <table class="table table-inverse table-hover table-bordered">
+            <thead class="thead-default">
+            <tr>
+                <th>No.</th>
+                <th>Property ID</th>
+                <th>Address</th>
+                <th>Suburb Name</th>
+                <th>Postcode</th>
+                <th>Listed Date</th>
+                <th>Price</th>
+                <th>Sold Date</th>
+                <th>Sold Price</th>
+                <th>Listed Agent</th>
+                <th>Create Date</th>
+	            <th>Modified Date</th>
+            </tr>
+            </thead>
+            <tbody>
+
+          
+            {% for row in property %}
+            <tr>
+                <td>{{ row.count }}</td><!--No. -->
+                <td>{{ row.property_id }}</td><!--Property ID -->
+                <td>{{ row.address }}</td><!-- Address -->
+                <td>{{ row.suburb_name }}</td><!-- Suburb Name -->
+                <td>{{ row.postcode }}</td><!-- Postcode -->
+                <td>{{ row.listed_date|date:"d M Y" }}</td><!-- Listed Date -->
+                <td>{{ row.price }}</td><!-- Price -->
+                <td>{{ row.sold_date|date:"d M Y" }}</td><!-- Sold Date -->
+                <td>{{ row.sold_price}}</td><!-- Sold Price -->
+                <td>{{ row.listed_agent }}</td><!-- Listed Agent -->
+	            <td>{{ row.create_date|date:"d M Y" }}</td><!-- Create Date -->
+                <td>{{ row.modify_date|date:"d M Y" }}</td><!-- Modified Date -->
+                <!--class="nowrap"-->
+            </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

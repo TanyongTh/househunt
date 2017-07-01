@@ -1,0 +1,86 @@
+{% load staticfiles %}
+<!--{% load static %}-->
+
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+	<title>House Hunting</title>
+	
+	<!-- Bootstrap -->
+	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+	
+	<!---->
+	<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+	<script src="{% static 'js/alert.js' %}"></script>
+
+	<!-- Google Font -->
+	<link href="https://fonts.googleapis.com/css?family=Dancing+Script" rel="stylesheet">
+
+	<!-- Project Styling -->
+	<link rel="stylesheet" href="{% static 'css/househunt.css' %}">
+
+	<!-- Font Awesome -->
+	<!--<link rel="stylesheet" href="{% static 'css/font-awesome.css' %}">-->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+
+<div id="page-header">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-6 page-header-height">
+				<header>
+					<h1><a href="{% url 'index' %}">House Hunting</a></h1>
+				</header>
+			</div>
+			<div class="col-md-6 page-header-height">
+				<nav>
+					<ul>
+						<li><a href="{% url 'index' %}">Home</a></li>
+						<li><a href="{% url 'property_search' %}">Search</a></li>
+						<li><a href="#">Export</a></li>
+					</ul>
+				</nav>
+			</div>
+		</div>
+	</div>
+</div>
+	<!--{% include 'househunt/messages.html' %}-->
+	{% block content %}
+	{% endblock %}
+
+<!-- End Content -->
+
+
+<!-- Start Footer -->
+<footer id="footer">
+	<div class="container text-center">
+		<div class="row">
+			<h1 class="logo"><strong>House Hunting</strong></h1>
+			<ul>
+				<li><a href="#"><i class="fa fa-facebook-official"></i></a></li>
+				<li><a href="#"><i class="fa fa-twitter"></i></a></li>
+				<li><a href="#"><i class="fa fa-instagram"></i></a></li>
+				<li><a href="#"><i class="fa fa-linkedin-square"></i></a></li>
+			</ul>
+
+			<div class="copyrights">&copy; Copyright 2017 - Tanya Theabwa</div>
+		</div>
+	</div>
+</footer>
+
+<!-- End Footer -->
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<!--<script src="{% static 'js/bootstrap.min.js '%}"></script>-->
+<!--<script src="{% static 'js/wow.min.js '%}"></script>-->
+<!--<script src="{% static 'js/numscroller-1.0.js '%}"></script>-->
+<!--<script src="{% static 'js/lightbox-plus-jquery.min.js '%}"></script>-->
+<!--<script src="{% static 'js/owl.carousel.js '%}"></script>-->
+
+</body>
+</html>

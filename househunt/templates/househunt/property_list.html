@@ -1,0 +1,53 @@
+{% extends 'househunt/property_scraping.html' %}
+
+{% block result %}
+
+
+<div class="row">
+    <div class="col-md-12">
+        <p>Search results: <b>{{ search_result }}</b> properties</p>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="table-responsive">
+        <table class="table table-inverse table-hover table-bordered">
+            <thead class="thead-default">
+            <tr>
+                <th>No.</th>
+                <th>Property ID</th>
+                <th>Address</th>
+                <th>Suburb Name</th>
+                <th>Postcode</th>
+                <th>Listed Date</th>
+                <th>Price</th>
+                <th>Sold Date</th>
+                <th>Sold Price</th>
+                <th>Listed Agent</th>
+                <th>Create Date</th>
+            </tr>
+            </thead>
+            <tbody>
+
+            {% for house in list %}
+            {% for row in house %}
+            <tr>
+                <td>{{ row.1 }}</td>
+                <td>{{ row.2 }}</td>
+                <td>{{ row.3 }}</td>
+                <td>{{ row.4 }}</td>
+                <td>{{ row.5 }}</td>
+                <td class="nowrap">{{ row.6|date:"d M Y" }}</td>
+                <td>{{ row.7 }}</td>
+                <td class="nowrap">{{ row.8|date:"d M Y" }}</td>
+                <td>{{ row.9 }}</td>
+                <td>{{ row.10 }}</td>
+                <td class="nowrap">{{ row.11|date:"d M Y" }}</td>
+            </tr>
+            {% endfor %}
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

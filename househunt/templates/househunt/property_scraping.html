@@ -1,0 +1,55 @@
+{% extends 'househunt/base.html' %} {% load widget_tweaks %} {% block content %}
+
+
+<!--{% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <p>{{ message }}</p>
+    {% endfor %}
+</ul>
+{% endif %}-->
+
+<!--<ul class="messages">
+    {% for message in messages %}
+      <li class="{{ message.tags }}">{{ message }}</li>
+    {% endfor %}
+  </ul>-->
+
+<div id="scraping-page">
+	<div class="container">
+		<div class="scraping-form">
+			<!--lable-->
+			<div class="row">
+				<div class="col-md-12 col-md-offset-1">
+					<P id="scap-desc"><strong>Insert Real Estate link here:</strong></P>
+				</div>
+			</div>
+			<!--lable-->
+
+			<!--form-->
+			<div class="row">
+				<form name="housescraping" action="{% url 'housescraping' %}" method="post">
+					{% csrf_token %}
+
+					<div class="col-md-6 col-sm-12 col-md-offset-1">
+						{% render_field form.url class+="form-control input-lg object-height" placeholder="Enter link" %}
+					</div>
+
+
+					<div class="col-md-4 col-sm-4">
+						<button type="submit" class="btn btn-success btn-lg object-height" name="_btnget">Download</button>
+						<button type="submit" class="btn btn-primary btn-lg object-height" name="_btnsave">Save</button>
+					</div>
+
+				</form>
+			</div>
+			<!--form-->
+		</div>
+
+		<!--result area from page "property_list.html"-->
+		{% block result %} {% endblock %}
+	</div>
+</div>
+
+
+{% endblock %}

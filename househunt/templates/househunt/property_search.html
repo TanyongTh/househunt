@@ -1,0 +1,27 @@
+{% extends 'househunt/base.html' %} {% load widget_tweaks %} {% block content %}
+
+<div id="search-page">
+	<div class="container">
+
+		<div class="search-form">
+		<form name="property_search" action="{% url 'property_search' %}" method="get">
+			{% csrf_token %}
+
+					<div class="row">
+						<div class="form-group col-md-6">
+							<label for="address">Address</label> {% render_field form.address class+="form-control" placeholder="" id="address"%}
+						</div>
+						<button type="submit" class="btn btn-default col-md-1 col-md-offset-0" style="margin-top:25px;" name="btnsearch">Search</button>
+					</div>
+					<div class="row">
+						<div class="form-group col-md-1">
+							<label for="postcode">Postcodes</label> {% render_field form.postcode class+="form-control col-md-1" placeholder="" id="postcode" %}
+						</div>
+					</div>
+		</form>
+	</div>
+{% block result %} {% endblock %} 
+
+</div>
+</div>
+{% endblock %}
