@@ -34,7 +34,7 @@ Househunt is a web-scraping tool to help house hunters explore their favorite su
       $ cd dirname (dirname is a directory where you want to create virtualenv)
       $ python3 -m venv myenv
       $ cd myenv
-      $ source bin/avtivate
+      $ source bin/activate
    ```
    A cousor will change from **$**  ---->  **(myenv) $**
 
