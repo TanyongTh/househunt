@@ -35,13 +35,20 @@
 			<form name="housescraping" action="{% url 'housescraping' %}" method="post">
 				{% csrf_token %}
 				<div class="col-md-6 col-md-offset-2">
-					{% render_field form.url class+="form-control input-lg object-height" placeholder="Enter link" %}
+					{% render_field form.url class+="form-control input-lg object-height" placeholder="Enter your link from www.realestate.com.au" %}
 				</div>
 				<button type="submit" class="btn btn-success btn-lg col-md-2 object-height" name="_btnget">Download</button>
 			</form>
 		</div>
+		<br>
 
-		<div class="flex ">
+		<div class="row">
+			<div class="col-md-8 col-md-offset-2">
+
+			<p><i>Example link:  https://www.realestate.com.au/buy/in-strathfield%2c+nsw+2135%3b/list-1?includeSurrounding=false</i></p>
+				</div>
+		</div>
+		<div class="flex">
 		</div>
 	</div>
 </section>
@@ -52,60 +59,58 @@
 <section id="about">
 	<div class="container">
 		<h1>Web Scraping</h1>
-		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-			Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
-			irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat
-			non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+		<p id="about_wording">Househunt is a web-scraping tool to help house hunters explore their favorite suburbs for properties on sale from
+			RealEstate website and store in database, which you can search our stored data and compare how long the properties were in the marget before they got sold.</p>
 	</div>
 </section>
 
 <!-- Start Feature Section-->
-<section id="feature">
-	<header class="text-center feature-header">
-		<h3>Features</h3>
-	</header>
+<!--<section id="feature">-->
+	<!--<header class="text-center feature-header">-->
+		<!--<h3>Features</h3>-->
+	<!--</header>-->
 
-	<div class="container">
-		<div class="row">
-			<!-- Start feature-search -->
-			<div class="col-md-6 col-sm-12 feature-item">
-				<div class="col-md-12 feature-box">
-					<header class="text-center">
-						<i class="fa fa-search" aria-hidden="true"></i>
-						<div class="feature-title">
-							<h4><a href="{% url 'property_search' %}">Search Data</a></h4>
-						</div>
-					</header>
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
-						aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-						Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
-						occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-				</div>
-			</div>
-			<!-- End feature-search -->
+	<!--<div class="container">-->
+		<!--<div class="row">-->
+			<!--&lt;!&ndash; Start feature-search &ndash;&gt;-->
+			<!--<div class="col-md-6 col-sm-12 feature-item">-->
+				<!--<div class="col-md-12 feature-box">-->
+					<!--<header class="text-center">-->
+						<!--<i class="fa fa-search" aria-hidden="true"></i>-->
+						<!--<div class="feature-title">-->
+							<!--<h4><a href="{% url 'property_search' %}">Search Data</a></h4>-->
+						<!--</div>-->
+					<!--</header>-->
+					<!--<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna-->
+						<!--aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.-->
+						<!--Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint-->
+						<!--occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>-->
+				<!--</div>-->
+			<!--</div>-->
+			<!--&lt;!&ndash; End feature-search &ndash;&gt;-->
 
 
-			<!-- Start feature-export -->
-			<div class="col-md-6 col-sm-12 feature-item">
-				<div class="col-md-12 feature-box">
-					<header class="text-center">
-						<i class="fa fa-folder-open-o" aria-hidden="true"></i>
-						<div class="feature-title">
-							<h4><a href="">Export Data</a></h4>
-						</div>
-					</header>
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
-						aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-						Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
-						occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-				</div>
-			</div>
-			<!-- End feature-export -->
+			<!--&lt;!&ndash; Start feature-export &ndash;&gt;-->
+			<!--<div class="col-md-6 col-sm-12 feature-item">-->
+				<!--<div class="col-md-12 feature-box">-->
+					<!--<header class="text-center">-->
+						<!--<i class="fa fa-folder-open-o" aria-hidden="true"></i>-->
+						<!--<div class="feature-title">-->
+							<!--<h4><a href="">Export Data</a></h4>-->
+						<!--</div>-->
+					<!--</header>-->
+					<!--<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna-->
+						<!--aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.-->
+						<!--Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint-->
+						<!--occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>-->
+				<!--</div>-->
+			<!--</div>-->
+			<!--&lt;!&ndash; End feature-export &ndash;&gt;-->
 
-		</div>
-	</div>
-</section>
+		<!--</div>-->
+	<!--</div>-->
+<!--</section>-->
 
-</section>
+<!--</section>-->
 
 {% endblock %}

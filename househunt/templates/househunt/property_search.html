@@ -6,18 +6,20 @@
 		<div class="search-form">
 		<form name="property_search" action="{% url 'property_search' %}" method="get">
 			{% csrf_token %}
-
 					<div class="row">
 						<div class="form-group col-md-6">
-							<label for="address">Address</label> {% render_field form.address class+="form-control" placeholder="" id="address"%}
+							<label for="address">Search by Address:</label> {% render_field form.address class+="form-control" placeholder="" id="address"%}
 						</div>
-						<button type="submit" class="btn btn-default col-md-1 col-md-offset-0" style="margin-top:25px;" name="btnsearch">Search</button>
+						<button type="submit" class="btn btn-primary col-md-1 col-md-offset-0" style="margin-top:25px;" name="btnsearch">Search</button>
 					</div>
 					<div class="row">
-						<div class="form-group col-md-1">
-							<label for="postcode">Postcodes</label> {% render_field form.postcode class+="form-control col-md-1" placeholder="" id="postcode" %}
+						<div class="form-group col-md-2">
+							<label for="postcode">Search by Postcodes:</label> {% render_field form.postcode class+="form-control col-md-1" placeholder="" id="postcode" %}
 						</div>
+
 					</div>
+			<div class="row">
+				<div class="col-md-8"><p>Example postcode 2000 for Sydney</p></div></div>
 		</form>
 	</div>
 {% block result %} {% endblock %} 

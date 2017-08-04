@@ -3,9 +3,9 @@ import psycopg2
 from psycopg2 import sql
 from lxml import html
 from django.utils import timezone
-from django.utils import timezone
 import requests
 from collections import namedtuple
+from datetime import datetime
 
 dbHost     = DATABASES['default']['HOST']
 dbName     = DATABASES['default']['NAME']
@@ -13,6 +13,7 @@ dbUsername = DATABASES['default']['USER']
 dbPassword = DATABASES['default']['PASSWORD']
 dbPort     = DATABASES['default']['PORT']
 conn_string = "host=%s dbname=%s user=%s password=%s port=%s" % (dbHost,dbName,dbUsername,dbPassword,dbPort)
+global_date = timezone.now()
 
 
 def namedtuplefetchall(cursor):
@@ -31,9 +32,9 @@ def scrapingdata(form):
     suburb_name = ', '.join(suburb)[:-10]
 
     postcode = ', '.join(suburb)[-4:]
-    listed_date = timezone.now()
-    sold_date = timezone.now()
-    create_date = timezone.now()
+    listed_date = global_date
+    sold_date = global_date
+    create_date = global_date
 
     search_list = tree.xpath('//article/@id')  # list of properties id
 
@@ -55,36 +56,37 @@ def scrapingdata(form):
             agent_name = ', '.join(agent_name)
 
             row.append(
-                [search_result, row_id, property_id, address, suburb_name, postcode, listed_date, price, sold_date,
+                [search_result, row_id, property_id[1:], address, suburb_name, postcode, listed_date, price, sold_date,
                  sold_price, agent_name, create_date])
         twodlist.append(row)
     return twodlist
+
 def chk_duplicate_data(prop_id, postcode):
     
     conn = psycopg2.connect(conn_string)
     cursor = conn.cursor()
-
-    cursor.execute("SELECT * FROM househunt_property WHERE property_id=%s and postcode=%s;", (prop_id,postcode,))
-    records = cursor.fetchall()
+    sql_str = "SELECT id FROM househunt_property WHERE property_id=%s and postcode=%s;"
+    args_str = (prop_id, postcode)
+    cursor.execute(sql_str, args_str)
+    #records = cursor.fetchall()
+    records = cursor.fetchone()
 
     cursor.close()
     conn.close()
+    return records
 
-    if len(records) > 0:
-        return 1
-    else:
-        return 0
 def insert_prop(row, seq):
     try:
         conn = psycopg2.connect(conn_string)
         cursor = conn.cursor()
         sql_str = "INSERT INTO househunt_property (property_id, address, suburb_name, postcode," \
-                  "price, listed_agent, create_date, modify_date)" \
-                  "VALUES (%s, %s, %s, %s, %s, %s, %s, %s)"
+                  "price, listed_agent, sold_price, create_date, modify_date, listed_date)" \
+                  " VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s)"
+
         # args_str = ("a", "a", "a","a", \
         #             "a", "a", timezone.now(), timezone.now())
         args_str = (row[seq][2], row[seq][3], row[seq][4], row[seq][5],\
-                    row[seq][7], row[seq][10],timezone.now(), timezone.now())
+                    row[seq][7], row[seq][10], 0, global_date, global_date, global_date)
 
         cursor.execute(sql_str, args_str)
 
@@ -93,10 +95,50 @@ def insert_prop(row, seq):
     except (Exception, psycopg2.DatabaseError) as error:
         print(error)
         return error
+
     finally:
         if conn is not None:
             conn.close()
     return "Save data successfully"
+
+
+def update_prop(id, row, seq):
+    # Property ID   | 1
+    # Address       | 2
+    # Suburb Name   | 3
+    # Postcode      | 4
+    # Listed Date   | 5
+    # Price         | 6
+    # Sold Date     | 7
+    # Sold Price    | 8
+    # Listed Agent  | 9
+    # Create Date   | 10
+
+    try:
+        conn = psycopg2.connect(conn_string)
+        cursor = conn.cursor()
+        str_id = id[0]
+
+        sql_str = "UPDATE househunt_property SET (listed_agent=%s, postcode=%s, price=%s, address=%s, property_id=%s," \
+                  "sold_price=%s, suburb_name=%s, modify_date=%s" \
+                  " WHERE id=%s"
+        args_str = ('AA', row[seq][5], row[seq][7], row[seq][3], row[seq][2], \
+                    '3', row[seq][4], global_date, str_id)
+
+        cursor.execute(sql_str, args_str)
+
+        conn.commit()
+        cursor.close()
+    except (Exception, psycopg2.DatabaseError) as error:
+        print(error)
+        # return error
+        return args_str
+    finally:
+        if conn is not None:
+            conn.close()
+    return "Update data successfully"
+
+
 def search_prop(postcode, address):
     try:
         conn = psycopg2.connect(conn_string)

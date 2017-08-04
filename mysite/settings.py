@@ -10,12 +10,12 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/1.11/howto/deployment/checklist/
 
 #Production Settings
-ALLOWED_HOSTS = ['househunt.ap-southeast-2.elasticbeanstalk.com',]
-DEBUG = False
+# ALLOWED_HOSTS = ['househunt.ap-southeast-2.elasticbeanstalk.com',]
+# DEBUG = False
 
-# Development Settings
-# ALLOWED_HOSTS = ['127.0.0.1',]
-# DEBUG = True
+#Development Settings
+ALLOWED_HOSTS = ['127.0.0.1',]
+DEBUG = True
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'nb5q9x9mika5n_fc8_o_)l1dl(ve_)pcsh-ap5ba7p+titjxqt'
@@ -30,7 +30,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'househunt',
     'widget_tweaks',
-    'storages',
 ]
 
 MIDDLEWARE = [

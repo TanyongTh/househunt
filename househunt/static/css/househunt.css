@@ -85,6 +85,9 @@ nav li a:hover {
 	margin-top: 50px;
 	margin-bottom:20px;
 }
+#about_wording{
+	font-size: 20px;
+}
 /*---------- Feature ----------*/
 #feature{
     margin-bottom: 80px;
@@ -219,7 +222,7 @@ table thead tr th{
 	background-size: cover;*/
 	background-color: #005580;
 	color: #ffffff;
-	padding: 30px 0;
+	padding: 20px 0;
 	margin-top: 70px;
 }
 #footer .logo{

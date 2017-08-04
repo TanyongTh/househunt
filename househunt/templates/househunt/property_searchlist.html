@@ -33,24 +33,49 @@
 
           
             {% for row in property %}
+
             <tr>
-                <td>{{ row.count }}</td><!--No. -->
+                <td>{{ forloop.counter }}</td><!--No. -->
                 <td>{{ row.property_id }}</td><!--Property ID -->
                 <td>{{ row.address }}</td><!-- Address -->
                 <td>{{ row.suburb_name }}</td><!-- Suburb Name -->
                 <td>{{ row.postcode }}</td><!-- Postcode -->
-                <td>{{ row.listed_date|date:"d M Y" }}</td><!-- Listed Date -->
+                <td class="nowrap">{{ row.listed_date|date:"d M Y" }}</td><!-- Listed Date -->
                 <td>{{ row.price }}</td><!-- Price -->
-                <td>{{ row.sold_date|date:"d M Y" }}</td><!-- Sold Date -->
+                <td class="nowrap">{{ row.sold_date|date:"d M Y" }}</td><!-- Sold Date -->
                 <td>{{ row.sold_price}}</td><!-- Sold Price -->
                 <td>{{ row.listed_agent }}</td><!-- Listed Agent -->
-	            <td>{{ row.create_date|date:"d M Y" }}</td><!-- Create Date -->
-                <td>{{ row.modify_date|date:"d M Y" }}</td><!-- Modified Date -->
+	            <td class="nowrap">{{ row.create_date|date:"d M Y" }}</td><!-- Create Date -->
+                <td class="nowrap">{{ row.modify_date|date:"d M Y" }}</td><!-- Modified Date -->
                 <!--class="nowrap"-->
             </tr>
             {% endfor %}
             </tbody>
         </table>
     </div>
+</div>
+
+<div class="container text-center">
+{% if property.has_other_pages %}
+  <ul class="pagination">
+    {% if property.has_previous %}
+      <li><a href="?page={{ property.previous_page_number }}">&laquo;</a></li>
+    {% else %}
+      <li class="disabled"><span>&laquo;</span></li>
+    {% endif %}
+    {% for i in property.paginator.page_range %}
+      {% if property.number == i %}
+        <li class="active"><span>{{ i }} <span class="sr-only">(current)</span></span></li>
+      {% else %}
+        <li><a href="?page={{ i }}">{{ i }}</a></li>
+      {% endif %}
+    {% endfor %}
+    {% if property.has_next %}
+      <li><a href="?page={{ property.next_page_number }}">&raquo;</a></li>
+    {% else %}
+      <li class="disabled"><span>&raquo;</span></li>
+    {% endif %}
+  </ul>
+{% endif %}
 </div>
 {% endblock %}
