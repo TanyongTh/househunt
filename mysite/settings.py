@@ -10,7 +10,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/1.11/howto/deployment/checklist/
 
 #Production Settings
-ALLOWED_HOSTS = ['househunt.ap-southeast-2.elasticbeanstalk.com',]
+ALLOWED_HOSTS = ['househunt-test.ap-southeast-2.elasticbeanstalk.com',]
 DEBUG = False
 
 #Development Settings
