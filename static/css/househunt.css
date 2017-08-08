@@ -1,0 +1,441 @@
+/*-----------------------------------------------------------
+General
+-----------------------------------------------------------*/
+body {
+    padding-left: 0px;
+   	font-family: 'Roboto', sans-serif;
+   	/*background-image: url("/static/img/bg.jpg");
+   	background-position: center;
+    background-size: cover; /*cover, initial auto
+   	background-repeat: no-repeat;*/
+}
+::-webkit-input-placeholder {
+   font-style: italic;
+}
+:-moz-placeholder {
+   font-style: italic;
+}
+::-moz-placeholder {
+   font-style: italic;
+}
+:-ms-input-placeholder {
+   font-style: italic;
+}
+/*-----------------------------------------------------------
+1. Header
+-----------------------------------------------------------*/
+#page-header {
+    /*background-size: cover;
+	background-color: #005580;*/
+    margin: 0 0 0 0;        /*top right bottom left*/
+    border-bottom: 1px solid #006699;
+    padding: 10px 0px 5px 0px; /*top right bottom left*/
+    /*height: 180px;*/
+}
+#page-header h1, #page-header h1 a, #page-header h1 a:visited, #page-header h1 a:active {
+	font-family: 'Dancing Script', cursive;
+    color: #006699;
+    /*color: #ffffff;*/
+    font-size: 28pt;
+    font-weight: bold;
+    text-decoration: none;
+    margin: 0;
+    padding: 0;
+}
+.page-header-height{
+    height: 50px;
+}
+/*-----------------------------------------------------------
+2. Navigator
+-----------------------------------------------------------*/
+#page-header nav{
+	margin: 5px 0px 0px 0px;
+    position: bottom; 
+}
+nav ul{
+    list-style-type: none;      /*Removes the bullets.*/
+    margin: 0;                  /*remove browser default settings*/
+    padding: 0;                 /*remove browser default settings*/
+    overflow: hidden;           /*the overflow is clipped, and the rest of the content is hidden: | visible, hidden, auto same as scroll*/
+    float: right;
+    /*overflow-x: hidden; /* Hide horizontal scrollbar */
+    /*overflow-y: scroll;  Add vertical scrollbar */
+}
+nav li{
+    float: left;
+}
+nav li a{
+    color: #006699;
+    display: block;             /*Displaying the links as block elements makes the whole link area clickable (not just the text)*/
+    font-size: 11pt;
+    text-align: center;
+    padding: 14px 0px 0px 20px;         /*top right bottom left*/
+    text-decoration: none;      /*No line above or below text*/
+}
+nav li a:hover {
+    color: orange;
+	 font-size: 11pt;
+}
+/*-----------------------------------------------------------
+3. Index.html
+-----------------------------------------------------------*/
+
+/*---------- About ----------*/
+#about{
+	margin-top: 50px;
+	margin-bottom:20px;
+}
+#about_wording{
+	font-size: 20px;
+}
+/*---------- Feature ----------*/
+#feature{
+    margin-bottom: 80px;
+}
+#feature p{
+    text-align: left;
+}
+.feature-header{
+    margin-top: 40px;
+    margin-bottom: 50px;
+}
+.feature-header h3 {
+    overflow: hidden;
+    text-align: center;
+    color: #006699;
+    font-family: 'Dancing Script', cursive;
+    font-size: 3em;
+}
+.feature-header h3:before,
+.feature-header h3:after {
+    background-color: #ddd;
+    content: "";
+    display: inline-block;
+    height: 1px;
+    position: relative;
+    vertical-align: middle;
+    width: 30%;
+}
+.feature-header h3:before {
+    right: 0.5em;
+    margin-left: -50%;
+}
+.feature-header h3:after {
+    left: 0.5em;
+    margin-right: -50%;
+}
+.feature-title {
+    margin-top: -24px;
+    margin-left: 10px;
+    display: inline-block;
+}
+.feature-title h4 a{
+    font-weight: 600;
+    font-size: 1.2em;
+    letter-spacing: 0.5px;
+    color: #17202a;
+}
+.feature-title a:hover, a:active{
+    font-size: 1.3em;
+}
+.feature-item i {
+    font-size: 25px;
+    color: #c1c1c1;
+    padding-right: 5px;
+}
+.feature-box{
+    border: 1px solid #d5dbdb;
+    border-radius: 3px;
+    padding: 15px 15px 15px 15px;
+}
+.feature-box:hover, .feature-box:active{
+    background-color: #d5dbdb;
+    color:#006699;
+}
+/*-----------------------------------------------------------
+2.1 Property_scraping.html
+-----------------------------------------------------------*/
+.scraping-form{
+	padding: 40 0 60 0;
+	margin-top:40px;
+	margin-bottom:20px;
+	border: 1px solid #d9d9d9;
+	border-radius: 6px;
+	/*background-color: #34495e;*/
+}
+.date {
+    color: #828282;
+}
+.object-height{
+	height: 60px;
+}
+#scraping-page .btn-success{
+    width: 49%;
+}
+#scraping-page .btn-primary{
+    width: 49%;
+}
+/*-----------------------------------------------------------
+2.2 Property_list.html
+-----------------------------------------------------------*/
+.panel panel-default{
+    padding: 0 0 0 0;
+	margin-bottom: 50px;
+}
+.table-responsive{
+    padding: 0 0 0 0;
+}
+table{
+    font-size:9pt;
+    margin: 0 0 0 0;
+    border-color:  #aab7b8;
+}
+table thead tr th{
+    text-align: center;
+    background-color: #d5dbdb;
+    white-space: nowrap;
+}
+.nowrap{
+	white-space: nowrap;
+}
+
+
+/*-----------------------------------------------------------
+2.3 Property_search.html
+-----------------------------------------------------------*/
+.search-form{
+	padding: 30px 0px 40px 30px;
+	margin-top:40px;
+	margin-bottom:20px;
+	border: 1px solid #d9d9d9;
+	border-radius: 6px;
+	/*background-color: #34495e;*/
+}
+
+/*-----------------------------------------------------------
+3. Footer
+-----------------------------------------------------------*/
+#footer{
+	/*background-repeat: no-repeat;
+	background-position: bottom;
+	-webkit-background-size: cover;
+	background-size: cover;*/
+	background-color: #005580;
+	color: #ffffff;
+	padding: 20px 0;
+	margin-top: 70px;
+}
+#footer .logo{
+	font-size: 47px;
+	padding: 0 20px 10px 20px;
+}
+#footer h1{
+    font-family: 'Dancing Script', cursive;
+}
+#footer ul{
+	padding-left: 0;
+	display: block;
+	margin-top: 10px;
+}
+
+#footer ul li{
+	display: inline-block;
+}
+
+#footer ul a{
+	font-size: 30px;
+	color: #fff;
+	padding: 0 10px;
+}
+
+/* Banner */
+#banner {
+		padding: 8em 0 9em 0;
+        background-image: url("/static/img/banner.jpeg");
+		background-size: cover;
+		background-position: bottom;
+		background-attachment: fixed;
+		background-repeat: no-repeat;
+		text-align: center;
+		position: relative;
+        overflow: hidden;
+}
+#banner:before {
+		content: '';
+		background: rgba(46, 77, 122, 0.6);
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		top: 0;
+		left: 0;
+}
+#banner .inner {
+			/*border-top: 2px solid rgba(255, 255, 255, 0.2);*/
+			position: relative;
+			z-index: 10005;
+			padding-top: 3em;
+}
+#banner h1 {
+			font-size: 3.5em;
+			font-weight: 400;
+			color: #fff;
+			line-height: 1em;
+			margin: 0 0 1em 0;
+			padding: 0;
+		}
+
+#banner h3 {
+	font-weight: 400;
+	color: #fff;
+	margin: 0;
+	font-size: 1.5em;
+}
+
+#banner .icon {
+	color: #6cc091;
+	font-size: 2em;
+}
+
+#banner p {
+	font-size: 1em;
+	color: rgba(255, 255, 255, 0.55);
+	/*margin-bottom: 1.75em;*/
+    text-align: left;
+}
+
+#banner .flex {
+			-ms-flex-pack: center;
+			-moz-justify-content: center;
+			-webkit-justify-content: center;
+			-ms-justify-content: center;
+			justify-content: center;
+			text-align: center;
+			margin: 0 auto 4em auto;
+		}
+
+#banner .flex div {
+		border-right: 2px solid rgba(255, 255, 255, 0.2);
+		padding: 0 8em;
+}
+
+#banner .flex div:last-child {
+	border: none;
+	padding-right: 0;
+}
+
+#banner .flex div:first-child {
+	padding-left: 0;
+}
+
+#banner .flex div p {
+	margin: 0;
+}
+
+		@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+
+			#banner {
+				background-attachment: scroll;
+			}
+
+		}
+
+		@media screen and (max-width: 1680px) {
+
+			#banner .flex div {
+				padding: 0 6em;
+			}
+
+		}
+
+		@media screen and (max-width: 1280px) {
+
+			#banner {
+				padding: 7em 0 6em 0;
+			}
+
+				#banner .inner {
+					padding-top: 6em;
+				}
+
+				#banner h1 {
+					font-size: 3em;
+				}
+
+				#banner h3 {
+					font-size: 1.25em;
+				}
+
+				#banner .flex div {
+					padding: 0 3em;
+				}
+
+		}
+
+		@media screen and (max-width: 980px) {
+
+			#banner {
+				background-attachment: scroll;
+				padding: 5em 0 4em 0;
+			}
+
+				#banner .inner {
+					padding-top: 4em;
+				}
+
+				#banner h1 {
+					font-size: 2.5em;
+				}
+
+				#banner h3 {
+					font-size: 1.25em;
+				}
+
+				#banner .flex div {
+					font-size: .85em;
+					padding: 0 1.5em;
+				}
+
+		}
+
+		@media screen and (max-width: 736px) {
+
+			#banner {
+				padding: 4em 0 3em 0;
+			}
+
+				#banner .inner {
+					padding-top: 3em;
+				}
+
+				#banner h1 {
+					font-size: 2em;
+				}
+
+				#banner h3 {
+					font-size: 1.25em;
+				}
+
+				#banner .flex {
+					-moz-flex-direction: column;
+					-webkit-flex-direction: column;
+					-ms-flex-direction: column;
+					flex-direction: column;
+					margin: 0 auto 2em auto;
+				}
+
+					#banner .flex div {
+						font-size: .85em;
+						padding: 0;
+						border: none;
+						margin-bottom: 1em;
+					}
+
+		}
+
+		@media screen and (max-width: 480px) {
+
+			#banner h1 {
+				font-size: 1.5em;
+			}
+
+		}
